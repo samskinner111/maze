@@ -4,7 +4,7 @@ class Grid
   attr_reader :rows, :columns
 
   def initialize(rows, columns)
-    @rows = rowse
+    @rows = rows
     @columns = columns
     @grid = prepare_grid
     configure_cells
