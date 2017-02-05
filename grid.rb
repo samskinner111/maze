@@ -66,7 +66,7 @@ class Grid
       top = "|"
       bottom = "+"
 
-      row.each do |row|
+      row.each do |cell|
         cell = Cell.new(-1, -1) unless cell
         body = "   " 
         east_boundry = (cell.linked?(cell.east) ? " " : "|")
