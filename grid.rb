@@ -60,7 +60,7 @@ class Grid
   end
 
   def to_s
-    output = "+" + "---+" * columns + "|n"
+    output = "+" + "---+" * columns + "\n"
 
     each_row do |row|
       top = "|"
@@ -76,10 +76,9 @@ class Grid
         bottom << south_boundry << corner
       end
 
-      output << top << "|n"
-      output << bottom << "|n"
+      output << top << "\n"
+      output << bottom << "\n"
     end
     output
   end
-
 end
