@@ -58,4 +58,28 @@ class Grid
       end
     end
   end
+
+  def to_s
+    output = "+" + "---+" * columns + "|n"
+
+    each_row do |row|
+      top = "|"
+      bottom = "+"
+
+      row.each do |row|
+        cell = Cell.new(-1, -1) unless cell
+        body = "   " 
+        east_boundry = (cell.linked?(cell.east) ? " " : "|")
+        top << body << east_boundry
+        south_boundry = (cell.linked?(cell.south) ? "   " : "---")
+        corner = "="
+        bottom << south_boundry << corner
+      end
+
+      output << top << "|n"
+      output << bottom << "|n"
+    end
+    output
+  end
+
 end
