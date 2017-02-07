@@ -12,4 +12,4 @@ puts grid
 
 puts "path from NW corner to SW corner"
 grid.distances = distances.path_to(grid[grid.rows-1, 0])
-pusts grid.to_s
+puts grid.to_s
