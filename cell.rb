@@ -40,6 +40,8 @@
 
   def distances
     distances = Distances.new(self)
+    frontier = [self]
+    
     while frontier.any?
       new_frontier = []
 
