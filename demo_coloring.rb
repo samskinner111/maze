@@ -11,6 +11,6 @@ grid.distances = start.distances
 # puts grid
 # puts grid.class.class
 
-filename = 'colorful.png'
+filename = 'images/colorful.png'
 grid.to_png.save(filename)
 puts "saved to #{filename}"

@@ -7,4 +7,4 @@ Sidewinder.on(grid)
 puts grid
 
 img = grid.to_png
-img.save "sw-maze.png"
+img.save "images/sw-maze.png"
