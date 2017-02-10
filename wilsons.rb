@@ -12,7 +12,7 @@ class Wilsons
       path = [cell]
 
       while unvisited.include?(cell)
-        cell = cell.neighbor.sample
+        cell = cell.neighbors.sample
         position = path.index(cell)
 
         if position
@@ -20,13 +20,13 @@ class Wilsons
         else
           path << cell
         end
-
-        0.upto(path.length-2) do |index|
-          path[index].link(path[index+1])
-          unvisited.delete(path[index])
-        end
       end
-      grid
+      0.upto(path.length-2) do |index|
+        path[index].link(path[index+1])
+        unvisited.delete(path[index])
+      end
     end
-    
+    grid
+  end
+
 end

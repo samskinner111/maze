@@ -1,4 +1,4 @@
-demrequire 'grid'
+require 'grid'
 require 'wilsons'
 
 grid = Grid.new(20,20)
