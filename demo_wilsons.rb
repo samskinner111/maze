@@ -7,3 +7,6 @@ Wilsons.on(grid)
 filename = 'images/wilsons.png'
 grid.to_png.save(filename)
 `open #{filename}`
+
+deadends = grid.deadends
+puts "#{deadends.count} dead ends"
