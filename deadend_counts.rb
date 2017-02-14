@@ -4,8 +4,9 @@ require 'sidewinder'
 require 'aldous_broder'
 require 'wilsons'
 require 'hunt_and_kill'
+require 'recursive_backtracker'
 
-algorithms = [BinaryTree, Sidewinder, AldousBroder, Wilsons, HuntAndKill]
+algorithms = [BinaryTree, Sidewinder, AldousBroder, Wilsons, HuntAndKill, RecursiveBacktracker]
 
 tries = 100
 size = 20
@@ -18,7 +19,7 @@ algorithms.each do |algorithm|
   tries.times do
     grid = Grid.new(size, size)
     algorithm.on(grid)
-    deadend_counts << grid.deadend.deadend_counts
+    deadend_counts << grid.deadends.count
   end
 
   total_deadends = deadend_counts.inject(0) { |s,a| s+a }
@@ -27,7 +28,7 @@ end
 
 total_cells = size*size
 puts
-puts "Average deadends per #{size}*#{size} maze (#{total_cells} cells:"
+puts "Average deadends per #{size}*#{size} maze (#{total_cells} cells):"
 puts
 sorted_algorithms = algorithms.sort_by { |algorithm| -averages[algorithm] }
 
