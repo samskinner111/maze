@@ -1,6 +1,31 @@
 require 'grid'
+require 'polar_cell'
 
 class PolarGrid < Grid 
+
+  def initialize(rows)
+    super(rows, 1)
+  end
+
+  def prepare_grid
+    rows = Array.new(@rows)
+
+    row_height = 1.0/@rows
+    rows[0] = [ PolarCell.new(0, 0) ]
+
+    (1..@rows).each do |row|
+      radius = row.to_f/@rows
+      circumference = 2* Math::PI* radius
+
+      previous_count = rows[row-1].length
+      estimated_cell_width = circumference/previous_count
+      ratio = (estimated_cell_width)/row_height).round
+
+      cells = previous_count*ratio
+      rows[row] = Array.new(cells) { |col| PolarCell.new(row, col) }
+    end
+    rows
+  end
 
   def to_png(cell_size: 10)
     img_size = 2*@rows*cell_size
