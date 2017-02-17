@@ -4,7 +4,7 @@ class PolarCell < Cell
   attr_accessor :cw, :ccw, :inward
   attr_reader :outward
 
-  def initialize(row, colum n)
+  def initialize(row, column)
     super
     @outward = []
   end

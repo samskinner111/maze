@@ -2,7 +2,7 @@ require 'polar_grid'
 require 'recursive_backtracker'
 
 #grid = PolarGrid.new(8, 8)
-grid = PolarGrid.new(20,20)
+grid = PolarGrid.new(20)
 RecursiveBacktracker.on(grid)
 
 filename = "images/polar.png"
