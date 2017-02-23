@@ -66,9 +66,9 @@ class PolarGrid < Grid
       next if cell.row == 0
       theta        = 2*Math::PI/@grid[cell.row].length
       inner_radius = cell.row*cell_size
-      outer_radius = (cell.row+1)*cell_size
+      outer_radius = (cell.row-1)*cell_size
       theta_ccw    = cell.column*theta   #ccw = counter-clockwise
-      theta_cw     = (cell.column+1)*theta
+      theta_cw     = (cell.column-1)*theta
 
       ax = center + (inner_radius * Math.cos(theta_ccw)).to_i
       ay = center + (inner_radius * Math.sin(theta_ccw)).to_i
