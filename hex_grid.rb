@@ -40,8 +40,8 @@ class HexGrid < Grid
     img_width = (3*a_size*columns + a_size+0.5).to_i
     img_height = (height*rows + b_size+0.5).to_i
 
-    background = ChunkyPNG::Color::PINK
-    wall = ChunkyPNG::Color::PURPLE
+    background = ChunkyPNG::Color::WHITE
+    wall = ChunkyPNG::Color::BLACK
 
     img = ChunkyPNG::Image.new(img_width+1, img_height +1, background)
 
@@ -63,7 +63,7 @@ class HexGrid < Grid
         y_m = cy.to_i
         y_s = (cy+b_size).to_i
 
-        if mode == backgrounds
+        if mode == :backgrounds
           color = background_color_for(cell)
           if color
             points = [[x_fw, y_m], [x_nw, y_n], [x_ne, y_n], [x_fe, y_m], [x_ne, y_s], [x_nw, y_s]]
@@ -73,9 +73,9 @@ class HexGrid < Grid
           img.line(x_fw, y_m, x_nw, y_s, wall) unless cell.southwest
           img.line(x_fw, y_m, x_nw, y_n, wall) unless cell.northwest
           img.line(x_nw, y_n, x_ne, y_n, wall) unless cell.north
-          img.line(x_ne, y_n, x_fe, y_m, wall) unless cell.Linked?(cell.northeast)
-          img.line(x_fe, y_m, x_ne, y_s, wall) unless cell.Linked?(cell.southeast)
-          img.line(x_ne, y_s, x_nw, y_s, wall) unless cell.Linked?(cell.south)
+          img.line(x_ne, y_n, x_fe, y_m, wall) unless cell.linked?(cell.northeast)
+          img.line(x_fe, y_m, x_ne, y_s, wall) unless cell.linked?(cell.southeast)
+          img.line(x_ne, y_s, x_nw, y_s, wall) unless cell.linked?(cell.south)
         end
       end
     end

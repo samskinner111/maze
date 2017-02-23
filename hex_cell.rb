@@ -2,7 +2,7 @@ require 'cell'
 
 class HexCell < Cell
 
-  attr_accessor :notheast, :northwest
+  attr_accessor :northeast, :northwest
   attr_accessor :southeast, :southwest
 
   def neighbors
