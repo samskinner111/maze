@@ -3,6 +3,7 @@ require 'recursive_backtracker'
 
 grid = Grid.new(20,20)
 RecursiveBacktracker.on(grid)
+grid.braid(1.0)
 
 filename = 'images/recursive.png'
 grid.to_png.save(filename)
