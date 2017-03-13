@@ -8,12 +8,12 @@ end
 
 grid = Grid.new(20, 20)
 GrowingTree.on(grid) { |list| list.sample }
-save(grid, "growing_tree_random.png")
+save(grid, "images/growing_tree_random.png")
 
 grid = Grid.new(20, 20)
 GrowingTree.on(grid) { |list| list.last }
-save(grid, "growing_tree_last.png")
+save(grid, "images/growing_tree_last.png")
 
 grid = Grid.new(20, 20)
 GrowingTree.on(grid) { |list| (rand(2) == 0) ? list.last : list.sample }
-save(grid, "growing_tree_mix.png")
+save(grid, "images/growing_tree_mix.png")
