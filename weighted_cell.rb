@@ -11,7 +11,7 @@ class WeightedCell < Cell
   def distances
     weights = Distances.new(self)
     pending = [self]
-
+    #re-implement using a priority queue
     while pending.any?
       cell = pending.sort_by { |c| weights[c] }.first
       pending.delete(cell)
