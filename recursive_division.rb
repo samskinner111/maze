@@ -9,7 +9,8 @@ class RecursiveDivision
   end
 
   def self.divide(row, column, height, width)
-    return if height <= 1 || width <= 1
+    return if height <= 1 || width <= 1 ||
+      height < 5 && width < 5 && rand(4) == 0  #creates rooms within the maze
     if height > width
       divide_horizontally(row, column, height, width)
     else
