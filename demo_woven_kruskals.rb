@@ -22,7 +22,7 @@ class PreconfiguredGrid < WeaveGrid
   end
 end
 
-grid = PreconfiguredGrid.new(20, 20)
+grid = PreconfiguredGrid.new(10, 60)
 state = Kruskals::State.new(grid)
 grid.size.times do |i|
   row = 1 + rand(grid.rows - 2)
